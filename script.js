@@ -1,9 +1,20 @@
 var APIKey = "1802fd1963a6abd30ad1c8984516bc38";
-var cityName = "Hudson";
-var stateCode = "WI";
+var cityName;
+var stateCode;
 var lat_lon = [];
 var cityFinderUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},US&limit=1&appid=${APIKey}`;
+var cityInput = document.getElementById('cityInput')
+var searchBtn = document.getElementById('search-btn')
 
+cityInput.addEventListener('change', function (e) {
+  cityName = e.target.value
+})
+searchBtn.addEventListener('click', function() {
+  console.log(lat_lon)
+  console.log(cityName);
+  console.log(stateCode);
+  getCityWeather()
+})
 
 function getCityWeather() {
   fetch(cityFinderUrl).then(function (res) {
@@ -35,7 +46,7 @@ function getCityWeather() {
     }
   });
 }
-getCityWeather();
+// getCityWeather();
 
 function currentWeather () {
 

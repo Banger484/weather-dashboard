@@ -9,10 +9,11 @@ for (let i = 0; i < statesFull.length; i++) {
 }
 
 stateMenu.addEventListener('change', function (e) {
-    abbr = e.target.value
+    stateName = e.target.value
     var options = document.querySelectorAll('option')
     for (let i = 0; i < options.length; i++) {
-        var
+        if (options[i].textContent.includes(stateName)) {
+            stateCode = options[i].id
+        }
     }
-    console.log(abbr)
 })
