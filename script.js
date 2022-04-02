@@ -2,6 +2,7 @@ var APIKey = "1802fd1963a6abd30ad1c8984516bc38";
 var cityName;
 var stateCode;
 var lat_lon = [];
+var forecast = []
 var cityInput = document.getElementById('cityInput')
 var searchBtn = document.getElementById('search-btn')
 
@@ -9,9 +10,6 @@ cityInput.addEventListener('change', function (e) {
   cityName = e.target.value.trim()
 })
 searchBtn.addEventListener('click', function() {
-  console.log(lat_lon)
-  console.log(cityName);
-  console.log(stateCode);
   getCityWeather()
 })
 
@@ -34,10 +32,12 @@ function getCityWeather() {
               return;
             }
             res.json().then(function (data) {
-                for(let i = 1; i < 6; i++) {
-                    console.log(data.daily[i])
+                for(let i = 0; i < 6; i++) {
+                    forecast.push(data.daily[i])
+                    
                 }
-            });
+                console.log(forecast)  // put weather card generators here.
+              });
           })
           .catch(function (err) {
             console.error(err);
@@ -46,9 +46,15 @@ function getCityWeather() {
     }
   });
 }
-// getCityWeather();
 
 function currentWeather () {
+var card = document.createElement('div')
+card.setAttribute('class', 'current-card')
+var city_date_icon = document.createElement('h2')
+var temp = document.createElement('h2')
+var wind = document.createElement('h2')
+var humidity = document.createElement('h2')
+var uvindex = document.createElement('h2')
 
 }
 
