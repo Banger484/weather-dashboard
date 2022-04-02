@@ -2,12 +2,11 @@ var APIKey = "1802fd1963a6abd30ad1c8984516bc38";
 var cityName;
 var stateCode;
 var lat_lon = [];
-var cityFinderUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},US&limit=1&appid=${APIKey}`;
 var cityInput = document.getElementById('cityInput')
 var searchBtn = document.getElementById('search-btn')
 
 cityInput.addEventListener('change', function (e) {
-  cityName = e.target.value
+  cityName = e.target.value.trim()
 })
 searchBtn.addEventListener('click', function() {
   console.log(lat_lon)
@@ -17,6 +16,7 @@ searchBtn.addEventListener('click', function() {
 })
 
 function getCityWeather() {
+  var cityFinderUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},US&limit=1&appid=${APIKey}`;
   fetch(cityFinderUrl).then(function (res) {
     if (res.status !== 200) {
       console.log("fetch found nothing!");
