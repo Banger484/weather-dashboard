@@ -6,7 +6,7 @@ var forecast = [];
 var cityInput = document.getElementById("cityInput");
 var searchBtn = document.getElementById("search-btn");
 var currentContainer = document.getElementById("current-container");
-var forecastContainer = document.getElementById("forecast-container")
+var forecastContainer = document.getElementById("forecast-container");
 var currentDay = moment().format("dddd, MMMM Do YYYY");
 cityInput.addEventListener("change", getCity);
 
@@ -53,7 +53,7 @@ function getCityWeather() {
 
 function currentWeather() {
   removeAllChildNodes(currentContainer);
-  removeAllChildNodes(forecastContainer)
+  removeAllChildNodes(forecastContainer);
   var iconUrl = `https://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`;
   var icon;
   fetch(iconUrl).then(function (res) {
@@ -95,7 +95,7 @@ function currentWeather() {
 function fiveDayWeather(i) {
   var iconUrl = `https://openweathermap.org/img/wn/${forecast[i].weather[0].icon}@2x.png`;
   var icon;
-  var forecastDate = moment().add(i, 'days').format("dddd, MMMM Do YYYY")
+  var forecastDate = moment().add(i, "days").format("dddd, MMMM Do YYYY");
   fetch(iconUrl).then(function (res) {
     icon = res.url;
     return icon;
@@ -118,4 +118,4 @@ function fiveDayWeather(i) {
   wind.textContent = `Wind: ${forecast[i].wind_speed} MPH`;
   card.appendChild(humidity);
   humidity.textContent = `Humidity: ${forecast[i].humidity}`;
-  }
+}
