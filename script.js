@@ -5,6 +5,8 @@ var lat_lon = [];
 var forecast = []
 var cityInput = document.getElementById('cityInput')
 var searchBtn = document.getElementById('search-btn')
+var currentContainer = document.getElementById('current-container')
+var forecastContainer = document.getElementById('forecast-container')
 
 cityInput.addEventListener('change', function (e) {
   cityName = e.target.value.trim()
@@ -37,6 +39,7 @@ function getCityWeather() {
                     
                 }
                 console.log(forecast)  // put weather card generators here.
+              currentWeather()  
               });
           })
           .catch(function (err) {
@@ -48,16 +51,29 @@ function getCityWeather() {
 }
 
 function currentWeather () {
+  var iconUrl = ` http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`
+  fetch(iconUrl)
+    .then(function (res) {
+      var icon = res.url
+      return icon
+    })
+  console.log(forecast[0].weather[0].icon);
 var card = document.createElement('div')
-card.setAttribute('class', 'current-card')
+currentContainer.appendChild(card)
+card.setAttribute('class', 'forecast-card')
 var city_date_icon = document.createElement('h2')
 var temp = document.createElement('h2')
 var wind = document.createElement('h2')
 var humidity = document.createElement('h2')
 var uvindex = document.createElement('h2')
+card.appendChild(city_date_icon)
+card.appendChild(temp)
+card.appendChild(wind)
+card.appendChild(humidity)
+card.appendChild(uvindex)
 
 }
 
 function fiveDayWeather () {
-    
+
 }
