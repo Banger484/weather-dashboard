@@ -1,0 +1,22 @@
+body {
+    background-color: slateblue;
+}
+header {
+    background-color: palevioletred;
+    height: 7vh;
+    color: white;
+    text-align: center;
+}
+
+
+
+.search-menu {
+    width: 25vw;
+    height: 100vh;
+    background-color: palegreen;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+
