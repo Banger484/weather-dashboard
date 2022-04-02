@@ -18,7 +18,7 @@ searchBtn.addEventListener("click", function () {
 });
 
 function getCityWeather() {
-  var cityFinderUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},US&limit=1&appid=${APIKey}`;
+  var cityFinderUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},US&limit=1&appid=${APIKey}`;
   fetch(cityFinderUrl).then(function (res) {
     if (res.status !== 200) {
       console.log("fetch found nothing!");
@@ -54,7 +54,7 @@ function getCityWeather() {
 function currentWeather() {
   removeAllChildNodes(currentContainer);
   removeAllChildNodes(forecastContainer)
-  var iconUrl = `http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`;
+  var iconUrl = `https://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`;
   var icon;
   fetch(iconUrl).then(function (res) {
     icon = res.url;
@@ -93,7 +93,7 @@ function currentWeather() {
   resetSearchInfo();
 }
 function fiveDayWeather(i) {
-  var iconUrl = `http://openweathermap.org/img/wn/${forecast[i].weather[0].icon}@2x.png`;
+  var iconUrl = `https://openweathermap.org/img/wn/${forecast[i].weather[0].icon}@2x.png`;
   var icon;
   var forecastDate = moment().add(i, 'days').format("dddd, MMMM Do YYYY")
   fetch(iconUrl).then(function (res) {
