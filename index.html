@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Weather Dashboard</h1>
+      <h1>Weather Dashboard</h1>
     </header>
     <main>
-        <div class="search-menu">
-            <h1 class="search-heading">Search for a City:</h1>
-                <input type="text" id="cityInput" class="search-bar" placeholder="Enter city name here">
-                <select name="state-menu" id="state-menu" class="states-menu">
-                    <option>Please select a State</option>
-                </select>
-                <button id="search-btn" class="btn btn-info search-button">Search</button>
+      <div class="search-menu">
+        <h1 class="search-heading">Search for a City:</h1>
+        <input
+          type="text"
+          id="cityInput"
+          class="search-bar"
+          placeholder="Enter city name here"
+        />
+        <select name="state-menu" id="state-menu" class="states-menu">
+          <option>Please select a State</option>
+        </select>
+        <button id="search-btn" class="btn btn-info search-button">
+          Search
+        </button>
+      </div>
+      <div class="saved-cities"></div>
+      <div class="weather-display">
+        <div id="current-container" class="current-container"></div>
+        <div id="forecast-container-out" class="forecast-container-out">
+          <div id="forecast-container1" class="forecast-container-in"></div>
+          <div id="forecast-container2" class="forecast-container-in"></div>
+          <div id="forecast-container3" class="forecast-container-in"></div>
+          <div id="forecast-container4" class="forecast-container-in"></div>
+          <div id="forecast-container5" class="forecast-container-in"></div>  
         </div>
-        <div class="saved-cities">
-
-        </div>
+      </div>
     </main>
-    <div class="weather-display">
-        <div id="current-container"class="current-container"></div>
-        <div id="forecast-container" class="forecast-container"></div>
-    </div>
 
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./variables.js"></script>
     <script src="./states.js"></script>
-   <script src="./script.js"></script> 
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

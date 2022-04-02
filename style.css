@@ -8,7 +8,9 @@ header {
     text-align: center;
 }
 
-
+main {
+    display: flex;
+}
 
 .search-menu {
     width: 25vw;
@@ -19,4 +21,24 @@ header {
     padding: 2%;
 }
 
-
+.weather-display {
+    width: 75vw;
+    height: 100vh;
+}
+.current-container {
+    height: 50vh;
+    border: 1px solid black;
+    width: 100%;
+}
+.forecast-container-out {
+    height: 50vh;
+    width: 75vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.forecast-container-in {
+    height: 50vh;
+    width: 15vw;
+    border: 1px solid black;
+}

@@ -7,7 +7,7 @@ var cityInput = document.getElementById('cityInput')
 var searchBtn = document.getElementById('search-btn')
 var currentContainer = document.getElementById('current-container')
 var forecastContainer = document.getElementById('forecast-container')
-
+var currentDay = moment().format('dddd, MMMM Do YYYY')
 cityInput.addEventListener('change', function (e) {
   cityName = e.target.value.trim()
 })
@@ -52,21 +52,29 @@ function getCityWeather() {
 
 function currentWeather () {
   var iconUrl = ` http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`
+  var icon
   fetch(iconUrl)
     .then(function (res) {
-      var icon = res.url
+      icon = res.url
       return icon
     })
   console.log(forecast[0].weather[0].icon);
 var card = document.createElement('div')
 currentContainer.appendChild(card)
 card.setAttribute('class', 'forecast-card')
-var city_date_icon = document.createElement('h2')
+var city = document.createElement('h2')
+var date = document.createElement('h2')
+var iconImg = document.createElement('img')
 var temp = document.createElement('h2')
 var wind = document.createElement('h2')
 var humidity = document.createElement('h2')
 var uvindex = document.createElement('h2')
-card.appendChild(city_date_icon)
+card.appendChild(city)
+city.textContent = `${cityName.toUpperCase()}, ${stateCode}`
+card.appendChild(date)
+date.textContent = currentDay
+card.appendChild(iconImg)
+iconImg.setAttribute('src', iconUrl)
 card.appendChild(temp)
 card.appendChild(wind)
 card.appendChild(humidity)
