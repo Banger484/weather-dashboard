@@ -76,10 +76,13 @@ date.textContent = currentDay
 card.appendChild(iconImg)
 iconImg.setAttribute('src', iconUrl)
 card.appendChild(temp)
+temp.textContent = `Temperature: ${forecast[0].temp.day}°F`
 card.appendChild(wind)
+wind.textContent = `Wind: ${forecast[0].wind_speed} MPH`
 card.appendChild(humidity)
+humidity.textContent = `Humidity: ${forecast[0].humidity}`
 card.appendChild(uvindex)
-
+uvindex.textContent = `UV Index: ${forecast[0].uvi}`
 }
 
 function fiveDayWeather () {
