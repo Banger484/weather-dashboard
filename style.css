@@ -13,7 +13,7 @@ main {
 }
 
 .search-menu {
-    width: 25vw;
+    width: 20vw;
     height: 100vh;
     background-color: palegreen;
     display: flex;
@@ -22,23 +22,35 @@ main {
 }
 
 .weather-display {
-    width: 75vw;
+    width: 80vw;
     height: 100vh;
 }
 .current-container {
     height: 50vh;
     border: 1px solid black;
     width: 100%;
+
 }
-.forecast-container-out {
+.current-card {
+    padding: 2%;
+}
+
+.current-card h2 {
+    font-size: 2rem;
+}
+
+.forecast-container {
     height: 50vh;
     width: 75vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.forecast-container-in {
-    height: 50vh;
+.forecast-card-five {
     width: 15vw;
-    border: 1px solid black;
+    padding: 1%;
+}
+.forecast-card-five h2 {
+    font-size: 1rem;
+
 }

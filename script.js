@@ -53,6 +53,7 @@ function getCityWeather() {
 
 function currentWeather() {
   removeAllChildNodes(currentContainer);
+  removeAllChildNodes(forecastContainer)
   var iconUrl = `http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`;
   var icon;
   fetch(iconUrl).then(function (res) {
@@ -61,7 +62,7 @@ function currentWeather() {
   });
   var card = document.createElement("div");
   currentContainer.appendChild(card);
-  card.setAttribute("class", "forecast-card");
+  card.setAttribute("class", "current-card");
   var city = document.createElement("h2");
   var date = document.createElement("h2");
   var iconImg = document.createElement("img");
@@ -89,13 +90,12 @@ function currentWeather() {
   fiveDayWeather(4);
   fiveDayWeather(5);
 
-
   resetSearchInfo();
 }
 function fiveDayWeather(i) {
-  // removeAllChildNodes(forecastContainer);
   var iconUrl = `http://openweathermap.org/img/wn/${forecast[i].weather[0].icon}@2x.png`;
   var icon;
+  var forecastDate = moment().add(i, 'days').format("dddd, MMMM Do YYYY")
   fetch(iconUrl).then(function (res) {
     icon = res.url;
     return icon;
@@ -109,7 +109,7 @@ function fiveDayWeather(i) {
   var wind = document.createElement("h2");
   var humidity = document.createElement("h2");
   card.appendChild(date);
-  date.textContent = currentDay;
+  date.textContent = forecastDate;
   card.appendChild(iconImg);
   iconImg.setAttribute("src", iconUrl);
   card.appendChild(temp);
