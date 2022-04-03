@@ -1,22 +1,3 @@
-var APIKey = "1802fd1963a6abd30ad1c8984516bc38";
-var cityName = "";
-var stateCode = "";
-var lat_lon = [];
-var forecast = [];
-var cityInput = document.getElementById("cityInput");
-var searchBtn = document.getElementById("search-btn");
-var currentContainer = document.getElementById("current-container");
-var forecastContainer = document.getElementById("forecast-container");
-var currentDay = moment().format("dddd, MMMM Do YYYY");
-cityInput.addEventListener("change", getCity);
-
-function getCity(e) {
-  cityName = e.target.value.trim();
-}
-searchBtn.addEventListener("click", function () {
-  getCityWeather();
-});
-
 function getCityWeather() {
   var cityFinderUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},US&limit=1&appid=${APIKey}`;
   fetch(cityFinderUrl).then(function (res) {
@@ -89,7 +70,8 @@ function currentWeather() {
   fiveDayWeather(3);
   fiveDayWeather(4);
   fiveDayWeather(5);
-
+  collectSearchInfo();
+  displayHistory()
   resetSearchInfo();
 }
 function fiveDayWeather(i) {
@@ -119,3 +101,8 @@ function fiveDayWeather(i) {
   card.appendChild(humidity);
   humidity.textContent = `Humidity: ${forecast[i].humidity}`;
 }
+
+cityInput.addEventListener("change", getCity);
+searchBtn.addEventListener("click", function () {
+  getCityWeather();
+});
