@@ -117,4 +117,5 @@ searchBtn.addEventListener("click", function () {
 });
 clearBtn.addEventListener("click", function () {
   removeAllChildNodes(storedCities);
+  localStorage.clear()
 });
