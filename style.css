@@ -1,56 +1,85 @@
+:root {
+  --oxfordBlue: #011936;
+  --BlackCoral: #465362;
+  --MorningBlue: #82a3a1;
+  --DarkSeaGreen: #9fc490;
+  --GrannySmithApple: #c0dfa1;
+}
+
 body {
-    background-color: slateblue;
+  background-color: var(--BlackCoral);
+  color: white;
 }
 header {
-    background-color: palevioletred;
-    height: 7vh;
-    color: white;
-    text-align: center;
+  background-color: var(--oxfordBlue);
+  height: 7vh;
+  color: white;
+  text-align: center;
 }
 
 main {
-    display: flex;
+  display: flex;
 }
 
 .search-menu {
-    width: 20vw;
-    height: 100vh;
-    background-color: palegreen;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
+  width: 20vw;
+  height: 100vh;
+  background-color: var(--oxfordBlue);
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
 }
 
 .weather-display {
-    width: 80vw;
-    height: 100vh;
+  width: 80vw;
+  height: 100vh;
 }
 .current-container {
-    height: 50vh;
-    border: 1px solid black;
-    width: 100%;
-
+  height: 50vh;
+  width: 100%;
 }
 .current-card {
-    padding: 2%;
+  padding: 2%;
 }
 
 .current-card h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .forecast-container {
-    height: 50vh;
-    width: 75vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  height: 50vh;
+  width: 75vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .forecast-card-five {
-    width: 15vw;
-    padding: 1%;
+  width: 15vw;
+  padding: 1%;
 }
 .forecast-card-five h2 {
-    font-size: 1rem;
+  font-size: 1rem;
+}
+.search-button {
+  width: 100%;
+  margin-top: 4%;
+}
+select {
+  margin-top: 4%;
+}
 
+.low {
+  color: seagreen;
+}
+.moderate {
+  color: yellow;
+}
+.high {
+  color: orange;
+}
+.very-high {
+  color: red;
+}
+.extreme {
+  color: magenta;
 }

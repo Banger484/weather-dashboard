@@ -1,19 +1,23 @@
-function displayHistory () {
-removeAllChildNodes(storedCities)
-var cityStorage = localStorage.getItem('cityHistory')
-console.log(cityStorage)
-var historyList = JSON.parse(cityStorage)
-console.log(historyList)
-for (let i = 0; i < historyList.length; i++) {
-var button = document.createElement('button')
-button.a
-button.textContent = historyList[i].cityName
-storedCities.appendChild(button)
-button.addEventListener('click', function () {
-    cityName = historyList[i].cityName
-    stateCode = historyList[i].stateCode
-    getCityWeather()
-}) 
-}
+function displayHistory() {
+  var cityStorage = localStorage.getItem("cityHistory");
+  var historyList = JSON.parse(cityStorage);
+  if (historyList) {
+    for (let i = 0; i < historyList.length; i++) {
+      var button = document.createElement("button");
+      button.textContent = `${historyList[i].cityName}, ${historyList[i].stateCode}`;
+      button.setAttribute("class", "btn btn-dark search-button");
+      button.setAttribute("id", `${historyList[i].cityName}`);
+      var tester = document.getElementById(`${historyList[i].cityName}`);
+      if (!tester) {
+        storedCities.appendChild(button);
+      }
+      button.addEventListener("click", function () {
+        cityName = historyList[i].cityName;
+        stateCode = historyList[i].stateCode;
+        getCityWeather();
+      });
+    }
+  }
 }
 
+displayHistory();

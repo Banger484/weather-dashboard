@@ -6,7 +6,6 @@ function getCityWeather() {
       return;
     } else {
       res.json().then(function (data) {
-        console.log(data);
         lat_lon.push(data[0].lat.toFixed(2));
         lat_lon.push(data[0].lon.toFixed(2));
         var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat_lon[0]}&lon=${lat_lon[1]}&units=imperial&exclude=hourly,minutely&appid=${APIKey}`;
@@ -20,7 +19,6 @@ function getCityWeather() {
               for (let i = 0; i < 6; i++) {
                 forecast.push(data.daily[i]);
               }
-              console.log(forecast); // put weather card generators here.
               currentWeather();
             });
           })
@@ -50,7 +48,7 @@ function currentWeather() {
   var temp = document.createElement("h2");
   var wind = document.createElement("h2");
   var humidity = document.createElement("h2");
-  var uvindex = document.createElement("h2");
+  var uvIndex = document.createElement("h2");
   card.appendChild(city);
   city.textContent = `${cityName.toUpperCase()}, ${stateCode}`;
   card.appendChild(date);
@@ -63,15 +61,26 @@ function currentWeather() {
   wind.textContent = `Wind: ${forecast[0].wind_speed} MPH`;
   card.appendChild(humidity);
   humidity.textContent = `Humidity: ${forecast[0].humidity}`;
-  card.appendChild(uvindex);
-  uvindex.textContent = `UV Index: ${forecast[0].uvi}`;
+  card.appendChild(uvIndex);
+  uvIndex.textContent = `UV Index: ${forecast[0].uvi}`;
+  if (forecast[0].uvi <= 2) {
+    uvIndex.setAttribute("class", "low");
+  } else if (forecast[0].uvi <= 5) {
+    uvIndex.setAttribute("class", "moderate");
+  } else if (forecast[0].uvi <= 7) {
+    uvIndex.setAttribute("class", "high");
+  } else if (forecast[0].uvi <= 10) {
+    uvIndex.setAttribute("class", "very-high");
+  } else if (forecast[0].uvi > 11) {
+    uvIndex.setAttribute("class", "extreme");
+  }
   fiveDayWeather(1);
   fiveDayWeather(2);
   fiveDayWeather(3);
   fiveDayWeather(4);
   fiveDayWeather(5);
   collectSearchInfo();
-  displayHistory()
+  displayHistory();
   resetSearchInfo();
 }
 function fiveDayWeather(i) {
@@ -105,4 +114,7 @@ function fiveDayWeather(i) {
 cityInput.addEventListener("change", getCity);
 searchBtn.addEventListener("click", function () {
   getCityWeather();
+});
+clearBtn.addEventListener("click", function () {
+  removeAllChildNodes(storedCities);
 });
